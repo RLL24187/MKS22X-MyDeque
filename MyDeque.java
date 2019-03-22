@@ -23,16 +23,24 @@ public class MyDeque<E>{
 
   }
   public E removeFirst(){
-
+    //NoSuchElementException - if this deque is empty
+    if (size == 0){
+      throw new NoSuchElementException;
+    }
+    Add(both first and last) will throw:
+    NullPointerException - if the specified element is null (this deque does not permit null elements)
   }
   public E removeLast(){
+    NoSuchElementException - if this deque is empty
+    Add(both first and last) will throw:
+    NullPointerException - if the specified element is null (this deque does not permit null elements)
 
   }
   public E getFirst(){
 
   }
   public E getLast(){
-    
+
   }
   /*Notes
   remove/get  (both first and last) will throw:
