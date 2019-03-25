@@ -62,17 +62,32 @@ public class MyDeque<E>{
     size++; //increase
     //only run if deque not empty
     if (size > 0){
-
+      if (size == data.length) resize();
+      // if start is at the start of the array
+      if (start == 0) start = data.length - 1;
+      else start--;
+    }
+    //add element to start
+    data[start] = element;
+    //increase size
+    size++;
     }
   }
   public void addLast(E element){
     if (element == null){
       throw new NullPointerException("addLast: Cannot add null!");
     }
-    size++; //increase
     //only run if deque not empty
     if (size > 0){
-
+      if (size == data.length) resize();
+      // if end is at the end of the array
+      if (end == data.length - 1) end = 0;
+      else end++;
+    }
+    // adding in last element
+    data[end] = element;
+    //increase size
+    size++;//increase size
     }
   }
 
@@ -97,7 +112,20 @@ public class MyDeque<E>{
     return E[end];
   }
 
-  
+  @SuppressWarnings("unchecked")
+  private void resize(){
+    //double the size of the temp array
+    E[] temp = (E[]) new Object[size() * 2 + 1];
+    int index = start;
+    for (int i = 0; i < size; i++){
+      // copy elements over
+      temp[i] = data[index % data.length];
+      index++;
+    }
+    start = 0;
+    end = size - 1;
+    data = temp;
+  }
   /*Notes
   remove/get  (both first and last) will throw:
 NoSuchElementException - if this deque is empty
