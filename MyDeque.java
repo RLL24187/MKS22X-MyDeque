@@ -45,10 +45,10 @@ public class MyDeque<E>{
 
   }
   public E getFirst(){
-
+    return E[start]
   }
   public E getLast(){
-
+    return E[end];
   }
   /*Notes
   remove/get  (both first and last) will throw:
