@@ -2,16 +2,18 @@ public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
 
+  //--------------------------------Constructors--------------------------------//
+  @SuppressWarnings("unchecked")
   public MyDeque(){
-    @SuppressWarnings("unchecked")
     E[] d = (E[])new Object[10];
     data = d;
     size = 0;
     start = 0;
     end = 0;
   }
+
+  @SuppressWarnings("unchecked")
   public MyDeque(int initialCapacity){
-    @SuppressWarnings("unchecked")
     E[] d = (E[])new Object[initialCapacity];
     data = d;
     size = 0;
@@ -22,6 +24,7 @@ public class MyDeque<E>{
     return size;
   }
 
+  //-------------------------------toString()------------------------------//
   //spaces after every element
   //toString O(n) - format:  {a b c d }  / {}  /   {VALUE_VALUE2_VALUE3_}  (space after each value)
   public String toString(){
@@ -45,25 +48,34 @@ public class MyDeque<E>{
     }
     return output + "}";
   }
-  public void addFirst(E element){
 
+  //----------------------------------------Add----------------------------------------//
+  //Add(both first and last) will throw:
+  //NullPointerException
+  //if the specified element is null (this deque does not permit null elements)
+  public void addFirst(E element){
+    if (element == null){
+      throw new NullPointerException("Cannot add null!");
+    }
   }
   public void addLast(E element){
-
+    if (element == null){
+      throw new NullPointerException("Cannot add null!");
+    }
   }
+
+  //------------------------------------Remove--------------------------------------//
+  //remove/get  (both first and last) will throw:
+  //NoSuchElementException - if this deque is empty
   public E removeFirst(){
-    //NoSuchElementException - if this deque is empty
     if (size == 0){
       throw new NoSuchElementException;
     }
-    Add(both first and last) will throw:
-    NullPointerException - if the specified element is null (this deque does not permit null elements)
   }
   public E removeLast(){
-    NoSuchElementException - if this deque is empty
-    Add(both first and last) will throw:
-    NullPointerException - if the specified element is null (this deque does not permit null elements)
-
+    if (size == 0){
+      throw new NoSuchElementException;
+    }
   }
   public E getFirst(){
     return E[start]
@@ -71,6 +83,7 @@ public class MyDeque<E>{
   public E getLast(){
     return E[end];
   }
+
   /*Notes
   remove/get  (both first and last) will throw:
 NoSuchElementException - if this deque is empty
