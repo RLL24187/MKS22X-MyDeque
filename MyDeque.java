@@ -20,6 +20,8 @@ public class MyDeque<E>{
     start = 0;
     end = 0;
   }
+
+  //Return size of deque
   public int size(){
     return size;
   }
@@ -55,12 +57,22 @@ public class MyDeque<E>{
   //if the specified element is null (this deque does not permit null elements)
   public void addFirst(E element){
     if (element == null){
-      throw new NullPointerException("Cannot add null!");
+      throw new NullPointerException("addFirst: Cannot add null!");
+    }
+    size++; //increase
+    //only run if deque not empty
+    if (size > 0){
+
     }
   }
   public void addLast(E element){
     if (element == null){
-      throw new NullPointerException("Cannot add null!");
+      throw new NullPointerException("addLast: Cannot add null!");
+    }
+    size++; //increase
+    //only run if deque not empty
+    if (size > 0){
+
     }
   }
 
@@ -69,14 +81,15 @@ public class MyDeque<E>{
   //NoSuchElementException - if this deque is empty
   public E removeFirst(){
     if (size == 0){
-      throw new NoSuchElementException;
+      throw new NoSuchElementException("removeFirst: deque empty!");
     }
   }
   public E removeLast(){
     if (size == 0){
-      throw new NoSuchElementException;
+      throw new NoSuchElementException("removeLast: deque empty!");
     }
   }
+  //-------------------------------Gets----------------------------------//
   public E getFirst(){
     return E[start]
   }
@@ -84,6 +97,7 @@ public class MyDeque<E>{
     return E[end];
   }
 
+  
   /*Notes
   remove/get  (both first and last) will throw:
 NoSuchElementException - if this deque is empty
