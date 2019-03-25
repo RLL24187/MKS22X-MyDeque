@@ -32,24 +32,27 @@ public class MyDeque<E>{
   public String toString(){
     if (size == 0) return "{}";
     String output = "{";
+    int index = start;//helps avoid the offset if start isn't 0
     for (int i = 0; i < size; i++){
-      output += E[i] + " ";
+      output += data[index % data.length] + " ";
+      index++;
     }
     return output + "}";
   }
 
+/*
   //With commas and standard spacing
   public String myToString(){
     if (size == 0) return "{}";
     String output = "{";
+    int index = start;//helps avoid the offset if start isn't 0
     for (int i = 0; i < size; i++){
-      output += E[i];
-      if (i != size - 1){
-        output += ", ";
-      }
+      output += data[index % data.length] + " ";
+      index++;
     }
     return output + "}";
   }
+  */
 
   //----------------------------------------Add----------------------------------------//
   //Add(both first and last) will throw:
