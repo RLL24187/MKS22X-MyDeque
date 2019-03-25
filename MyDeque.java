@@ -1,3 +1,5 @@
+import java.util.*;
+import java.io.*;
 public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
@@ -75,7 +77,7 @@ public class MyDeque<E>{
     //increase size
     size++;
     }
-  }
+
   public void addLast(E element){
     if (element == null){
       throw new NullPointerException("addLast: Cannot add null!");
@@ -92,7 +94,6 @@ public class MyDeque<E>{
     //increase size
     size++;//increase size
     }
-  }
 
   //------------------------------------Remove--------------------------------------//
   //remove/get  (both first and last) will throw:
@@ -109,10 +110,10 @@ public class MyDeque<E>{
   }
   //-------------------------------Gets----------------------------------//
   public E getFirst(){
-    return E[start]
+    return data[start];
   }
   public E getLast(){
-    return E[end];
+    return data[end];
   }
 
   @SuppressWarnings("unchecked")
