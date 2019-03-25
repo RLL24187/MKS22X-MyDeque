@@ -98,21 +98,54 @@ public class MyDeque<E>{
   //------------------------------------Remove--------------------------------------//
   //remove/get  (both first and last) will throw:
   //NoSuchElementException - if this deque is empty
+
+  //returns old element at start
   public E removeFirst(){
     if (size == 0){
       throw new NoSuchElementException("removeFirst: deque empty!");
     }
+    E o = data[start]; //stores original element to be returned later
+    data[start] = null;
+    // if size was 1, start doesn't change, remains 0
+    if (size != 1){
+      // if start is at the end of the array
+      if (start == data.length - 1) start = 0; //circles back around
+      else start++; //moves up
+    }
+    size--; //decrease
+    return o;
   }
+
+  //returns old element at end
   public E removeLast(){
     if (size == 0){
       throw new NoSuchElementException("removeLast: deque empty!");
     }
+    E o = data[end]; //stores original element to be returned later
+    data[end] = null;
+    // if size was 1, end doesn't change, remains 0
+    if (size != 1){
+      // if end is at the beginnning
+      if (end == 0) end = data.length - 1; //circles back around
+      else end--; //moves down
+    }
+    size--; //decrease
+    return o;
   }
+
   //-------------------------------Gets----------------------------------//
   public E getFirst(){
+    //NoSuchElementException - if this deque is empty
+    if (size == 0){
+      throw new NoSuchElementException("getFirst: empty deque");
+    }
     return data[start];
   }
   public E getLast(){
+    //NoSuchElementException - if this deque is empty
+    if (size == 0){
+      throw new NoSuchElementException("getLast: empty deque");
+    }
     return data[end];
   }
 
