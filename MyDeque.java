@@ -11,10 +11,15 @@ public class MyDeque<E>{
     end = 0;
   }
   public MyDeque(int initialCapacity){
-
+    @SuppressWarnings("unchecked")
+    E[] d = (E[])new Object[initialCapacity];
+    data = d;
+    size = 0;
+    start = 0;
+    end = 0;
   }
   public int size(){
-
+    return size;
   }
   public String toString(){
 
