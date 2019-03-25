@@ -64,11 +64,10 @@ public class MyDeque<E>{
     if (element == null){
       throw new NullPointerException("addFirst: Cannot add null!");
     }
-    size++; //increase
     //only run if deque not empty
     if (size > 0){
       if (size == data.length) resize();
-      // if start is at the start of the array
+      // if start is at start of the array
       if (start == 0) start = data.length - 1;
       else start--;
     }
@@ -85,7 +84,7 @@ public class MyDeque<E>{
     //only run if deque not empty
     if (size > 0){
       if (size == data.length) resize();
-      // if end is at the end of the array
+      // if end is at end of the array
       if (end == data.length - 1) end = 0;
       else end++;
     }
@@ -159,6 +158,7 @@ public class MyDeque<E>{
       temp[i] = data[index % data.length];
       index++;
     }
+    //final adjustments
     start = 0;
     end = size - 1;
     data = temp;
