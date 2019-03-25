@@ -21,8 +21,29 @@ public class MyDeque<E>{
   public int size(){
     return size;
   }
-  public String toString(){
 
+  //spaces after every element
+  //toString O(n) - format:  {a b c d }  / {}  /   {VALUE_VALUE2_VALUE3_}  (space after each value)
+  public String toString(){
+    if (size == 0) return "{}";
+    String output = "{";
+    for (int i = 0; i < size; i++){
+      output += E[i] + " ";
+    }
+    return output + "}";
+  }
+
+  //With commas and standard spacing
+  public String myToString(){
+    if (size == 0) return "{}";
+    String output = "{";
+    for (int i = 0; i < size; i++){
+      output += E[i];
+      if (i != size - 1){
+        output += ", ";
+      }
+    }
+    return output + "}";
   }
   public void addFirst(E element){
 
