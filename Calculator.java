@@ -3,9 +3,17 @@ public class Calculator{
      *Assume valid postfix notation, separated by spaces.
      */
     public static double eval(String s){
-      MyDeque<int> = new MyDeque(s.length() / 2 + 1); //create a new MyDeque
+      MyDeque<int> m = new MyDeque(s.length() / 2 + 1); //create a new MyDeque
       for (int i = 0; i < s.length(); i++){ //loop through the string
-        if (charAt())
+        if (isOperator(charAt(i))){
+          Double val2 = m.removeLast();
+          Double val1 = m.removeLast();
+          m.addLast(val1+val2);
+        }
+        else{
+          m.addLast(charAt(i)+0)); //makes this an integer
+        }
+        return m.getLast();
       }
     }
 
