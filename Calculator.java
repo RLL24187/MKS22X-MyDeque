@@ -1,9 +1,27 @@
+import java.util.Scanner;
 public class Calculator{
     /*Evaluate a postfix expression stored in s.
      *Assume valid postfix notation, separated by spaces.
      */
     public static double eval(String s){
+      Scanner scan = new Scanner(s);
       MyDeque<Double> m = new MyDeque<Double>(s.length() / 2 + 1); //create a new MyDeque
+      @SuppressWarnings("unchecked")
+      String temp = "";
+      while (scan.hasNext()) {
+        temp = scan.next();
+        if (isOperator(temp)){
+          double val2 = m.removeLast();
+          double val1 = m.removeLast();
+          m.addLast(operate(temp, val1, val2));
+          //Print the token
+          System.out.println("Token: " + val1 + " " + val2 + " "+ temp);
+        }
+        else{
+          m.addLast(Double.parseDouble(temp));
+        }
+      }
+      /*
       for (int i = 0; i < s.length(); i++){ //loop through the string
         if (isOperator(s.charAt(i))){
           double val2 = m.removeLast();
@@ -16,6 +34,7 @@ public class Calculator{
           m.addLast(s.charAt(i)+0.0); //makes this a double
         }
       }
+      */
       return m.getLast();
     }
 
@@ -30,24 +49,24 @@ public class Calculator{
     //}
 
     //helper method for determining whether or not something is an operator
-    public static boolean isOperator(char c){
-      return (c == '+' ||c == '-' || c== '*' || c == '/' || c == '%');
+    public static boolean isOperator(String temp){
+      return (temp.equals("+") ||temp.equals("-") || temp.equals("*") || temp.equals("/") || temp.equals("%"));
     }
 
-    public static double operate(char operater, double i1, double i2){
-      if (operater == '+'){
+    public static double operate(String operater, double i1, double i2){
+      if (operater.equals("+")){
         return i1 + i2;
       }
-      else if (operater == '-'){
+      else if (operater.equals("-")){
         return i1 - i2;
       }
-      else if (operater == '*'){
+      else if (operater.equals("*")){
         return i1 * i2;
       }
-      else if (operater == '/'){
+      else if (operater.equals("/")){
         return i1 / i2;
       }
-      else if (operater == '%'){
+      else if (operater.equals("%")){
         return i1 % i2;
       }
       return 0; //dummy
