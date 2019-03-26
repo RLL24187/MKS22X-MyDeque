@@ -15,13 +15,13 @@ public class Calculator{
     Remove: return AND remove the element. (pop / de-queue)
     */
     //helper method to divide up the string
-    public static MyDeque tokenize(String s){
+    //public static MyDeque tokenize(String s){
 
-    }
+    //}
 
-    //helper method for determining whether or not something is an operator 
-    public static boolean isOperator(String s){
-
+    //helper method for determining whether or not something is an operator
+    public static boolean isOperator(char c){
+      return (c == '+' ||c == '-' || c==' *' || c == '/' || c == '%');
     }
 }
 /*
