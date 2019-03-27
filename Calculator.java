@@ -104,7 +104,7 @@ public class Calculator{
         //multiplication
         "Check your token making! This is the most basic test for multiplication.",
         //division
-        "Check your token making! This is the most basic test for division. Your values may also be out of order in eval! (Division is not commutative)",
+        "Check your token making! This is the most basic test for division. Your values may also be out of order in eval! Since this is division, make sure your program treats all numbers as floating point! (Division is not commutative)",
         //mod
         "Check your token making! This is the most basic test for mod. Your values may also be out of order in eval! (Mod is not commutative)",
         //two operations
