@@ -132,7 +132,7 @@ public class Calculator{
           System.out.println("Test FAILED :(");
           System.out.println(errorMessages[i]);
         }
-        System.out.println("\nCorrect answer: "+answers[i]+"\n   Your answer: " + eval(tests[i]) + "\n   Test case "+ i + ": " + tests[i] + "\n------------------------------------\n");
+        System.out.println("\nCorrect answer: "+answers[i]+"\n   Your answer: " + eval(tests[i]) + "\n   Test case "+ i + ": " + tests[i] + "\n---------------------------------------\n");
       }
     }
 }
